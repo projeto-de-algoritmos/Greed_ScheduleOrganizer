@@ -1,13 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<html>
+
+    <script src="main.js"> </script>
+    <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body style="min-width: 100vw; background-color: grey; padding: 0; margin: 0">
+
+        <div class="content">
+
+            <header
+                style="display: flex; justify-content: space-between; background-color:black; color:white; padding: 1vw">
+                <div> Logo </div>
+                <div> Início </div>
+                <div> Iniciar Tarefas </div>
+                <div> Source code</div>
+            </header>
+
+            <div style="display: flex;  flex-direction: column; justify-content: center; padding: 1vw">
+                <div style="display:flex; justify-content: center;">
+                    <h2>SCHEDULE ORGANIZER</h2>
+                </div>
+
+                <form>
+                    <div style="display:flex; justify-content: center;">
+
+                        <label for="nomeTarefa">Tarefa</label>
+                        <input id="nomeTarefa" type="text" />
+
+                        <label for="dataDeFim">Data Final</label>
+                        <input id="dataDeFim" type="datetime-local" />
+
+                        <label for="tempoNecessario">Duração </label>
+                        <input id="tempoNecessario" type="datetime-local" />
+
+                        <button onclick="alert('teste')"> Adicionar </button>
+
+                    </div>
+
+                    <div style="display:flex;  justify-content: center;">
+                        <label for="modoProcrastinador"> Modo Procrastinador</label>
+                        <div onclick="alert('O modo procrastinador reduz a data de entrega da tarefa em um tempo aleatório.')"
+                            style="cursor: pointer;">
+                            &#9432;</div>
+                        <input id="modoProcrastinador" type="checkbox" />
+                        <button onclick="toggle('modoProcrastinador'); return false;">Finalizar</button>
+                    </div>
+                </form>
+                <div> Tarefas: </div>
+                <div> Nenhuma tarefa cadastrada </div>
+            </div>
+
+
+        </div>
+    </body>
+
 </html>
