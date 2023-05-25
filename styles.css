@@ -1,32 +1,65 @@
+/* Seletores de tags */
+
 body {
     min-width: 100vw;
-    background-color: grey;
+    min-height: 100vh;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
 }
 
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+body>* {
+    line-height: 4vh;
+    padding: 1vh 1vw;
 }
 
-.w-100 {
-    width: 100%;
+article {
+    flex: 1;
+    background-color: grey;
 }
 
-.header {
+header,
+footer {
+    background-color: #121619;
+    color: white;
+    min-height: 5vh;
+    width: 100vw;
     display: flex;
     justify-content: space-between;
-    background-color: black;
-    color: white;
-    padding: 1vw;
-    margin: 0;
+}
+
+
+
+/* Classes */
+
+/* @TODO: remover depois de debugar */
+.color {
+    background-color: red;
+}
+
+.row {
+    flex: 1
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
 }
 
 .content {
 
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,14 +67,8 @@ body {
 
 }
 
-div.content>div {
-    padding-left: 1vw;
-    padding-right: 1vw;
-}
 
-body>* {
-    line-height: 4vh;
-}
+
 
 button {
     background-color: black;
@@ -55,78 +82,68 @@ button {
     justify-content: center;
 }
 
-input {
 
-    width: fit-content;
+.logo-img {
+    padding-right: 60px;
 }
 
-.header-container{
-   display: flex;
-   justify-content: space-between;
-   background-color:#121619;
-   padding: 25px 25px;
+.nav-items>a {
+    text-decoration: none;
+    width: 100%;
+    color: white;
+    padding-right: 20px;
 }
 
-.logo-img{
-   padding-right: 60px;
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
 }
 
-.nav-items > a {
-   text-decoration: none;
-   color: white;
-   padding-right: 20px;
+.container-title {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
 }
 
-.main-container{
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   height: 70vh;
-}
-
-.container-title{
-  display:flex;
-  justify-content: center;
-  padding-bottom: 40px;
-}
-
-.container-title >h1{
-font-weight: 800;
-font-style: bold;
+.container-title>h1 {
+    font-weight: 800;
+    font-style: bold;
 
 }
 
-.procrastinador-mode{
-   display: block;
-   padding-left: 60px;
+.procrastinador-mode {
+    display: block;
+    padding-left: 60px;
 }
 
-.check-mode{
-   padding-top: 8px;
-   width: 100%;
-   display: flex;
-   justify-content: center;
+.check-mode {
+    padding-top: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-.form-container{
-   display:flex;
-   justify-content: center;
-   padding-bottom: 40px;
+.form-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
 }
 
-.form-container > div {
-   padding-right: 15px;
+.form-container>div {
+    padding-right: 15px;
 }
 
 .task-container {
-padding-top: 30px;
-width: 100%;
-display: flex;
-justify-content: left;
+    padding-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: left;
 
 }
 
-.task-content{
-  padding-left: 290px;
+.task-content {
+    padding-left: 290px;
 }

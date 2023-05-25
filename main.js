@@ -27,3 +27,7 @@ function getToday() {
 function initForm() {
     console.log('init')
 }
+
+function infoProcrastinador() {
+    alert('O modo procrastinador reduz a data de entrega da tarefa em um tempo aleatório para te ajudar a não procrastinar.')
+}
