@@ -55,8 +55,9 @@
                     <div class="form-check form-switch check-mode">
 
                         <label for="modoProcrastinador">Modo Procrastinador
-                            <span onclick="infoProcrastinador();return false;" style="cursor: pointer;"><i
-                                    class="fa-solid fa-circle-info"></i></span>
+                            <span onclick="infoProcrastinador();return false;" style="cursor: pointer;">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </span>
                         </label>
 
                         <input class="form-check-input" type="checkbox" role="switch" id="modoProcrastinador">
@@ -68,13 +69,13 @@
             <form id="form">
                 <div style="display:flex; justify-content: center;">
 
-                    <div>
+                    <div style="margin-right:1%;">
                         <label for="nomeTarefa">Tarefa</label>
                         <br>
                         <input class="form-control" type="text" />
                     </div>
 
-                    <div>
+                    <div style="margin-right:1%;">
                         <label for="dataDeFim">Data Final</label>
                         <br>
                         <input id="dataDeFim" class="form-control" type="datetime-local" />
@@ -83,12 +84,12 @@
                     <div>
                         <label for="tempoNecessario">Duração </label>
                         <br>
-                        <input id="dataDeFim" class="form-control" type="datetime-local" />
-
                         <input id="diasNecessarias" type="number" min="0" />
                         <span> Dias </span>
+                        <br>
                         <input id="horasNecessarias" type="number" min="0" />
                         <span> Horas </span>
+                        <br>
                         <input id="minutosNecessários" type="number" min="0" />
                         <span> Minutos </span>
 
@@ -96,29 +97,18 @@
                             document.getElementById('dataDeFim').value = getToday();
 
                         </script>
-                        <button onclick="addTask('form');return false;"> Adicionar</button>
 
                     </div>
 
                     <div>
                         <br>
-                        <button type="button" class="btn btn-dark" onclick="alert('teste')">Adicionar</button>
-                    </div>
-
-                    <div class="flex-center">
-                        <label for="modoProcrastinador"> Modo Procrastinador</label>
-                        <div onclick="alert('O modo procrastinador reduz a data de entrega da tarefa em um tempo aleatório.')"
-                            style="cursor: pointer;">
-                            &#9432;
-                        </div>
-                        <input id="modoProcrastinador" type="checkbox" />
-                        <button onclick="toggle('modoProcrastinador'); return false;">Finalizar</button>
+                        <button type="button" class="btn btn-dark" onclick="addTask('form'); return false;">Adicionar</button>
                     </div>
 
 
                 </div>
 
-                <div style="display:flex">
+                <div style="display:flex; margin-left: 20%;">
                     <button type="button" class="btn btn-dark" onclick="toggle('modoProcrastinador'); return false;">
                         Finalizar
                     </button>
