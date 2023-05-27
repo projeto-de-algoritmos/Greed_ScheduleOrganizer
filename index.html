@@ -47,80 +47,81 @@
             <!-- Linha de formulário de nova tarefas, com linhas dentro -->
 
             <div class="container-title">
+                <form id="form">
+                    <div class="procrastinador-mode">
+                        <div>
+                            <i class="fa-solid fa-circle-list"></i>
+                        </div>
+                        <div class="form-check form-switch check-mode">
 
-                <div class="procrastinador-mode">
-                    <div>
-                        <i class="fa-solid fa-circle-list"></i>
+                            <label for="modoProcrastinador">Modo Procrastinador
+                                <span onclick="infoProcrastinador();return false;" style="cursor: pointer;">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </span>
+                            </label>
+
+                            <input required class="form-check-input" type="checkbox" role="switch"
+                                id="modoProcrastinador">
+
+                        </div>
                     </div>
-                    <div class="form-check form-switch check-mode">
-
-                        <label for="modoProcrastinador">Modo Procrastinador
-                            <span onclick="infoProcrastinador();return false;" style="cursor: pointer;">
-                                <i class="fa-solid fa-circle-info"></i>
-                            </span>
-                        </label>
-
-                        <input class="form-check-input" type="checkbox" role="switch" id="modoProcrastinador">
-
-                    </div>
-                </div>
             </div>
 
-            <form id="form">
-                <div style="display:flex; justify-content: center;">
 
-                    <div style="margin-right:1%;">
-                        <label for="nomeTarefa">Tarefa</label>
-                        <br>
-                        <input class="form-control" type="text" />
-                    </div>
+            <div style="display:flex; justify-content: center;">
 
-                    <div style="margin-right:1%;">
-                        <label for="dataDeFim">Data Final</label>
-                        <br>
-                        <input id="dataDeFim" class="form-control" type="datetime-local" />
-                    </div>
+                <div style="margin-right:1%;">
+                    <label for="nome">Tarefa</label>
+                    <br>
+                    <input required id="nome" class="form-control" type="text" />
+                </div>
 
-                    <div>
-                        <label for="tempoNecessario">Duração </label>
-                        <br>
-                        <input id="diasNecessarias" type="number" min="0" />
-                        <span> Dias </span>
-                        <br>
-                        <input id="horasNecessarias" type="number" min="0" />
-                        <span> Horas </span>
-                        <br>
-                        <input id="minutosNecessários" type="number" min="0" />
-                        <span> Minutos </span>
+                <div style="margin-right:1%;">
+                    <label for="dataFinal">Data Final</label>
+                    <br>
+                    <input required id="dataFinal" class="form-control" type="datetime-local" />
+                </div>
 
-                        <script>
-                            document.getElementById('dataDeFim').value = getToday();
+                <div>
+                    <label for="tempoNecessario">Duração </label>
+                    <br>
+                    <input required id="duracaoDias" type="number" min="0" />
+                    <span> Dias </span>
+                    <br>
+                    <input required id="duracaoHoras" type="number" min="0" />
+                    <span> Horas </span>
+                    <br>
+                    <input required id="duracaoMinutos" type="number" min="0" />
+                    <span> Minutos </span>
 
-                        </script>
+                    <script>
+                        document.getElementById('dataFinal').value = getToday();
 
-                    </div>
-
-                    <div>
-                        <br>
-                        <button type="button" class="btn btn-dark" onclick="addTask('form'); return false;">Adicionar</button>
-                    </div>
-
+                    </script>
 
                 </div>
 
-                <div style="display:flex; margin-left: 20%;">
-                    <button type="button" class="btn btn-dark" onclick="toggle('modoProcrastinador'); return false;">
-                        Finalizar
-                    </button>
+                <div>
+                    <br>
+                    <button type="button" class="btn btn-dark"
+                        onclick="addTask('form'); return false;">Adicionar</button>
                 </div>
+
+
+            </div>
+
+            <div style="display:flex; margin-left: 20%;">
+                <button type="button" class="btn btn-dark" onclick="toggle('modoProcrastinador'); return false;">
+                    Finalizar
+                </button>
+            </div>
 
             </form>
 
             <!-- Linha de tarefas -->
             <div class="row">
                 <div class="task-container">
-                    <div class="task-content">
-                        <label for="tasks">Tarefas:</label>
+                    <div id="taskList" class="task-content">
                         <p> Nenhuma tarefa cadastrada </p>
                     </div>
 

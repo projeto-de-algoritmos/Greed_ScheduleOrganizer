@@ -1,4 +1,9 @@
 
+let modoProcrastinafor = false;
+
+let tasks = [];
+
+
 function toggle(id) {
 
     if (document.getElementById(id).style.display != "none")
@@ -9,11 +14,27 @@ function toggle(id) {
 }
 
 function addTask(formid) {
+    let task = {}
     for (x of document.getElementById(formid)) {
-        console.log(x.value)
+        task[x.id] = x.value
     }
+
+    tasks.push(task);
+    renderTasks();
+
 }
 
+function parseTask()
+
+function renderTasks() {
+
+
+    let tasksHTML = tasks.map(
+
+        t => t)
+    console.log(tasksHTML)
+    document.getElementById("taskList").innerHTML = tasksHTML.join('<br/>')
+}
 
 function getToday() {
 
@@ -31,3 +52,4 @@ function initForm() {
 function infoProcrastinador() {
     alert('O modo procrastinador reduz a data de entrega da tarefa em um tempo aleatório para te ajudar a não procrastinar.')
 }
+
