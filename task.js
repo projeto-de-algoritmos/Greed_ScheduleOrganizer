@@ -6,6 +6,9 @@ class Task {
     horas;
     minutos;
     duracao;
+    data_de_inicio;
+    data_de_fim;
+    atraso;
 
     getDurationInMinutes() {
         return this.minutos + this.horas * 60 + this.dias * 24 * 60;
@@ -18,6 +21,14 @@ class Task {
         this.horas = + formValue[elementsId['duracaoHoras']]
         this.minutos = + formValue[elementsId['duracaoMinutos']]
         this.duracao = this.getDurationInMinutes()
+    }
+
+
+    setDataInicio(data) {
+        this.data_de_inicio = data;
+        // @TODO: fazer o tratamento com as datas
+        this.data_de_fim = data + this.duracao;
+        this.atraso = this.data_de_final - this.data_final;
     }
 
 

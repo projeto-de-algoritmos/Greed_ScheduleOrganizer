@@ -1,3 +1,12 @@
+const table_ids =
+{
+    'lista': { id: 'taskList', headers: ['nome', 'data final', 'duracao'], },
+    'ordenadas': { id: 'step1', headers: ['nome', 'data final'], },
+    'com_atraso': { id: 'step2', headers: ['nome', 'data de inicio', 'data de fim', 'atraso'] }
+}
+
+
+
 class TaskList extends Array {
 
     constructor() {
@@ -12,12 +21,12 @@ class TaskList extends Array {
         let task = new Task(formValue)
         task.id = this.length;
         this.push(task)
-        renderTasks()
+        renderTasks('lista')
     }
 
     remove(index) {
         this[index] = null;
-        renderTasks()
+        renderTasks('lista')
     }
 
     toTable(headers, deletable = true) {
@@ -34,16 +43,10 @@ class TaskList extends Array {
         table += '</tr>'
 
         let tasksHTML = tasks.map(
-            t => t ? t.toTableRow(headers) : ''
+            t => t ? t.toTableRow(headers, deletable) : ''
         ).join('')
         return table + tasksHTML + '</table>';
     }
-
-    toTableWithLateness() {
-
-    }
-
-
 
 }
 
@@ -66,8 +69,24 @@ function deleteTask(id) {
 
 }
 
-const renderTasks = () => document.getElementById("taskList").innerHTML = tasks.toTable(['nome', 'data final', 'duracao'])
+function renderTasks(table_type, deletable = true) {
+    document.getElementById(table_ids[table_type].id).innerHTML = tasks.toTable(table_ids[table_type].headers, deletable)
+}
 
+function scheduleTasks() {
+
+    // Ordenar o tasks 
+
+    // Mostrar ordenadas - verificar se a tabela renderizou certinho
+    renderTasks('ordenadas', false)
+
+    // Agendar cada tarefa ordenada 
+
+
+    // Mostrar tarefas com atraso - verificar se os cálculos estão certos
+    renderTasks('com_atraso', false)
+
+}
 
 function init() {
 
@@ -87,6 +106,6 @@ function init() {
     tasks.add({ nome: "Tarefa 11", duracaoMinutos: 25, duracaoHoras: 12, duracaoDias: 3, dataFinal: "2023-06-06T20:14" })
     tasks.add({ nome: "Tarefa 12", duracaoMinutos: 26, duracaoHoras: 13, duracaoDias: 4, dataFinal: "2023-06-01T05:56" })
 
-    renderTasks();
+    scheduleTasks();
     return false;
 }

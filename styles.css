@@ -1,34 +1,28 @@
 /* Seletores de tags */
 
 body {
-    min-width: 100vw;
-    min-height: 100vh;
-    margin: 0;
-
     display: flex;
     flex-direction: column;
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-
+    min-height: 100vh;
 }
 
 body>* {
     line-height: 4vh;
     padding: 1vh 1vw;
-
 }
 
 article {
     flex: 1;
-    background-color: grey;
+
+    background-color: #9fa2a3;
 }
 
 header,
 footer {
     background-color: #121619;
-    color: white;
+    color: #9fa2a3;
     min-height: 5vh;
     width: 100vw;
     display: flex;
@@ -37,9 +31,8 @@ footer {
 
 
 button {
-    background-color: black;
-    color: white;
-
+    background-color: #121619;
+    color: #9fa2a3;
 }
 
 
@@ -56,7 +49,7 @@ td {
 table,
 th,
 td {
-    border: 1px solid black !important;
+    border: 1px solid #121619 !important;
     border-collapse: collapse !important;
 }
 
@@ -72,34 +65,21 @@ i {
 }
 
 
-.flex-row>* {
-    margin: 0.3vw;
-}
-
-.flex-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
 .center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.text-center {
-    text-align: center;
-}
 
 .content {
-
     width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-flow: row wrap;
-
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -111,11 +91,9 @@ i {
 
 
 .logo-img {
-    color: white;
     transform: scale(2);
-
 }
 
 .white {
-    color: white !important;
+    color: #d4d7d8 !important;
 }

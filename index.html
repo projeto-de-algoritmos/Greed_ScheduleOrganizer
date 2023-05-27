@@ -30,12 +30,10 @@
 
     <!-- ICONS::: https://fontawesome.com/icons -->
 
-
-
     <body>
         <header>
             <div class="nav-items">
-                <i class="fa-solid fa-calendar logo-img px-2" href="#"> </i>
+                <i class="fa-solid fa-calendar white logo-img px-2" href="#"> </i>
             </div>
             <div>
                 <i class="fa-solid fa-info px-3 white"> </i>
@@ -119,39 +117,36 @@
                             <button type="button" class="btn btn-dark" onclick="addTask();">Adicionar</button>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-dark"> Agendar Tarefas </button>
+                            <button type="button" class="btn btn-dark" onclick="scheduleTasks()"> Agendar Tarefas
+                            </button>
                         </div>
                     </div>
                 </div>
             </form>
 
-            <!-- Linha de tarefas -->
             <div class="row py-2">
-                <div class="col-12 center" id="taskList">
+                <div class="col-4 center" id="taskList">
                     <h3> Nenhuma tarefa cadastrada</h3>
                 </div>
-            </div>
-
-
-            <!-- Linhas do Algoritmo -->
-            <div class="row py-2" id="step1">
-                <div class="col-12 center">
+                <div class="col-4 center" id="step1">
                     <h3>Primeiro Passo</h3>
+                    De acordo com o algoritmo do Menor Atraso Máximo, você deve ordenar suas tarefas em ordem
+                    crescente
+                    de data de entrega.
                 </div>
-                <div class="col-12 center">
-                    De acordo com o algoritmo do Menor Atraso Máximo, você deve ordenar suas tarefas em ordem crescente
-                    de data de
-                    entrega.
+                <div class="col-4 center" id="step2">
+                    <h3>Primeiro Passo</h3>
+                    De acordo com o algoritmo do Menor Atraso Máximo, você deve ordenar suas tarefas em ordem
+                    crescente
+                    de data de entrega.
                 </div>
-
-
             </div>
+
+            <!-- @TODO: remover após debug -->
+            <script> init(); </script>
+
 
         </article>
-
-        <!-- @TODO: remover após debug -->
-        <script> init(); </script>
-
         <footer>
         </footer>
     </body>
