@@ -20,9 +20,6 @@ body>* {
 
 }
 
-
-
-
 article {
     flex: 1;
     background-color: grey;
@@ -46,8 +43,6 @@ button {
 }
 
 
-
-
 th {
     text-align: center !important;
 }
@@ -65,14 +60,13 @@ td {
     border-collapse: collapse !important;
 }
 
-
-
-
+i {
+    cursor: pointer;
+}
 
 
 /* Classes */
 
-/* @TODO: remover depois de debugar */
 .color {
     background-color: red;
 }
@@ -117,66 +111,11 @@ td {
 
 
 .logo-img {
-    padding-right: 60px;
-}
-
-.nav-items>a {
-    text-decoration: none;
-    width: 100%;
     color: white;
-    padding-right: 20px;
-}
-
-.main-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 70vh;
-}
-
-.container-title {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 40px;
-}
-
-.container-title>h1 {
-    font-weight: 800;
-    font-style: bold;
+    transform: scale(2);
 
 }
 
-.procrastinador-mode {
-    display: block;
-    padding-left: 60px;
-}
-
-.check-mode {
-    padding-top: 8px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.form-container {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 40px;
-}
-
-.form-container>div {
-    padding-right: 15px;
-}
-
-.task-container {
-    padding-top: 30px;
-    width: 100%;
-    display: flex;
-    justify-content: left;
-
-}
-
-.task-content {
-    padding-left: 290px;
+.white {
+    color: white !important;
 }

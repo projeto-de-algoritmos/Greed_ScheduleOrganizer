@@ -9,6 +9,7 @@
         <script src="validacao.js"></script>
         <script src="task.js"></script>
         <script src="tasklist.js"></script>
+        <script src="util.js"></script>
 
 
         <link rel="stylesheet" href="styles.css">
@@ -34,13 +35,13 @@
     <body>
         <header>
             <div class="nav-items">
-                <img src="" alt="Logo" class="logo-img">
-                <a href="#">Início</a>
-                <a href="">Iniciar Tarefas</a>
+                <i class="fa-solid fa-calendar logo-img px-2" href="#"> </i>
             </div>
             <div>
-                <img alt="source-code">
+                <i class="fa-solid fa-info px-3 white"> </i>
+                <i class="fa-solid fa-code px-3 white" onclick="window.open(repoUrl, '_blank');"> </i>
             </div>
+
         </header>
         <article>
 
@@ -80,16 +81,16 @@
                         <div class="row col-12 p-0 m-0">
                             <div class="col-4">
                                 <label for="duracaoDias"> Dias </label>
-                                <input class="form-control" id="duracaoDias" type="number" min="required 0" value="0" />
+                                <input class="form-control" id="duracaoDias" type="number" min="0" required value="0" />
                             </div>
                             <div class="col-4">
                                 <label for="duracaoHoras"> Horas </label>
-                                <input class="form-control" id="duracaoHoras" type="number" min="required 0"
+                                <input class="form-control" id="duracaoHoras" type="number" min="0" max="23" required
                                     value="0" />
                             </div>
                             <div class="col-4">
                                 <label for="duracaoMinutos"> Minutos </label>
-                                <input class="form-control" id="duracaoMinutos" type="number" min="required 0"
+                                <input class="form-control" id="duracaoMinutos" type="number" min="0" max="59" required
                                     value="0" />
                             </div>
                         </div>
@@ -107,7 +108,7 @@
                         </div>
                         <div class="col-3">
 
-                            <div class=" form-check form-switch check-mode d-flex justify-content-end">
+                            <div class=" form-check form-switch  d-flex justify-content-end">
                                 <input class=" form-check-input" type="checkbox" id="modoProcrastinador">
                             </div>
                         </div>

@@ -1,10 +1,10 @@
+const MAX_NOME = 30;
 
 function validaForm(formValue) {
 
-    if (!formValue[elementsId['taskName']]) {
-        fieldError('Nome da tarefa');
+    if (!validaNome(formValue))
         return false;
-    }
+
     if (!formValue[elementsId['taskEnd']]) {
         fieldError('Data Final');
         return false;
@@ -31,6 +31,20 @@ function validaForm(formValue) {
 
     return true;
 
+}
+
+function validaNome(formValue) {
+    let nome = formValue[elementsId['taskName']]
+
+    if (!nome) {
+        fieldError('Nome da tarefa');
+        return false;
+    }
+    if (nome.length > MAX_NOME || nome.length == 0) {
+        fieldError('Nome da tarefa', `Insira nomes entre 0 e ${MAX_NOME} caracteres.`)
+        return false;
+    }
+    return true;
 }
 
 
