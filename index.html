@@ -46,89 +46,84 @@
             </div>
 
             <!-- Linha de formulário de nova tarefas, com linhas dentro -->
-            <form id="form">
-                <div class="row col-12">
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="row">
-                                <h3 class="text-center">Descrição</h3>
+            <form id="form row col-12">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="row">
+                            <h4 class="text-center">Descrição
+                            </h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="nome">Nome da Tarefa</label>
+                                <input id="nome" class="form-control" type="text" required />
                             </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="nome">Tarefa</label>
-                                    <input required id="nome" class="form-control" type="text" />
-                                </div>
-                                <div class="col-6">
-                                    <label for="dataFinal">Data Final</label>
-                                    <input required id="dataFinal" class="form-control" type="datetime-local" />
-                                    <script>                                     setDataFinal();                                </script>
-                                </div>
+                            <div class="col-6">
+                                <label for="dataFinal">Data Final</label>
+                                <input id="dataFinal" class="form-control" type="datetime-local" required />
+                                <script>
+                                    setDataFinal();                               
+                                </script>
                             </div>
                         </div>
-                        <div class="row col-4">
-                            <div class="row">
-                                <h3 class="text-center">Duração</h3>
-                            </div>
-                            <div class="row col-12 p-0 m-0">
-                                <div class="col-4">
-                                    <label for="duracaoDias"> Dias </label>
-                                    <input class="form-control" required id="duracaoDias" type="number" min="0" />
-                                </div>
-                                <div class="col-4">
-                                    <label for="duracaoHoras"> Horas </label>
-                                    <input class="form-control" required id="duracaoHoras" type="number" min="0" />
-                                </div>
-                                <div class="col-4">
-                                    <label for="duracaoMinutos"> Minutos </label>
-                                    <input class="form-control" required id="duracaoMinutos" type="number" min="0" />
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
-                    <div class="row col-12 d-flex my-2 d-flex justify-content-end ">
-                        <div class="col-3 d-flex justify-content-end">
-                            <div class="col-9 d-flex justify-content-end">
-                                <label for="modoProcrastinador">
-                                    Modo Procrastinador
-                                    <i class="fa-solid fa-circle-info px-2" onclick="infoProcrastinador(); return false"
-                                        style="cursor: pointer;"></i>
-                                </label>
+                    <div class="row col-4">
+                        <div class="row">
+                            <h4 class="text-center">Duração</h4>
+                        </div>
+                        <div class="row col-12 p-0 m-0">
+                            <div class="col-4">
+                                <label for="duracaoDias"> Dias </label>
+                                <input class="form-control" id="duracaoDias" type="number" min="required 0" value="0" />
                             </div>
-                            <div class="col-3">
-
-                                <div class=" form-check form-switch check-mode d-flex justify-content-end">
-                                    <input required class=" form-check-input" type="checkbox" role="switch"
-                                        id="modoProcrastinador">
-                                </div>
+                            <div class="col-4">
+                                <label for="duracaoHoras"> Horas </label>
+                                <input class="form-control" id="duracaoHoras" type="number" min="required 0"
+                                    value="0" />
+                            </div>
+                            <div class="col-4">
+                                <label for="duracaoMinutos"> Minutos </label>
+                                <input class="form-control" id="duracaoMinutos" type="number" min="required 0"
+                                    value="0" />
                             </div>
                         </div>
-                        <div class="col-3 d-flex justify-content-end">
-                            <div class="px-1">
+                    </div>
 
-                                <button type="button" class="btn btn-dark" onclick="addTask();">Adicionar</button>
+                </div>
+                <div class="row col-12 d-flex my-2 d-flex justify-content-end ">
+                    <div class="col-3 d-flex justify-content-end">
+                        <div class="col-9 d-flex justify-content-end">
+                            <label for="modoProcrastinador">
+                                Modo Procrastinador
+                                <i class="fa-solid fa-circle-info px-2" onclick="infoProcrastinador(); return false"
+                                    style="cursor: pointer;"></i>
+                            </label>
+                        </div>
+                        <div class="col-3">
+
+                            <div class=" form-check form-switch check-mode d-flex justify-content-end">
+                                <input class=" form-check-input" type="checkbox" id="modoProcrastinador">
                             </div>
-                            <div>
-                                <button type="button" class="btn btn-dark"> Agendar Tarefas </button>
-                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 d-flex justify-content-end">
+                        <div class="px-1">
+
+                            <button type="button" class="btn btn-dark" onclick="addTask();">Adicionar</button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-dark"> Agendar Tarefas </button>
                         </div>
                     </div>
                 </div>
             </form>
 
-
-
-
             <!-- Linha de tarefas -->
-            <div class="row">
+            <div class="row py-2">
                 <div class="col-12 center" id="taskList">
-                    Nenhuma tarefa cadastrada
-
-
+                    <h3> Nenhuma tarefa cadastrada</h3>
                 </div>
-
             </div>
-
 
         </article>
         <footer>

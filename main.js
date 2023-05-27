@@ -45,36 +45,63 @@ class Task {
 
 }
 
+// Variável global guardando as tasks adicionadas
 
 let tasks = [];
 
 
-function toggle(id) {
 
-    if (document.getElementById(id).style.display != "none")
-        document.getElementById(id).style.display = "none";
-    else
-        document.getElementById(id).style.display = "block";
+// Operações com tasks
 
-}
 
 function addTask() {
 
     let formValue = {}
-    // console.log(document.getElementById('form'))
     for (x of document.getElementById('form')) {
         formValue[x.id] = x.value
     }
+    if (validaForm(formValue)) {
+        let task = new Task(formValue)
+        tasks.push(task);
+        renderTasks();
+    }
 
-    let task = new Task(formValue)
-    tasks.push(task);
-    renderTasks();
     return false;
 
 }
 
-function parseTask() { }
 
+// Validação
+
+function validaForm(formValue) {
+
+
+
+    if (!formValue[elementsId['taskName']]) {
+        fieldError('Nome da tarefa');
+        return false;
+    }
+    if (!formValue[elementsId['taskEnd']]) {
+        fieldError('Data Final');
+        return false;
+    }
+    if (!formValue[elementsId['duracaoDias']] || !formValue[elementsId['duracaoHoras']] || !formValue[elementsId['duracaoMinutos']]) {
+        fieldError('duracao');
+        return false;
+    }
+    return true;
+
+}
+
+
+function fieldError(fieldName) {
+    alert(`O campo ${fieldName} não pode estar vazio!`)
+}
+
+
+
+
+// Funções para gerenciar exibição de elementos
 
 
 function renderTasks() {
@@ -86,6 +113,7 @@ function renderTasks() {
     document.getElementById("taskList").innerHTML = tasksTable
     console.log(tasksTable)
 }
+
 
 function setDataFinal() {
 
@@ -101,12 +129,11 @@ function getToday() {
 
 }
 
-function initForm() {
-    // console.log('init')
-}
+
 
 function infoProcrastinador() {
     alert('O modo procrastinador reduz a data de entrega da tarefa em um tempo aleatório para te ajudar a não procrastinar.')
+
     return false;
 }
 
