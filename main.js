@@ -1,5 +1,6 @@
 // Id dos elementos [Atualizar sempre que alterar no HTML]
 
+
 const elementsId = {
     form: "form",
     taskName: "nome",
@@ -11,11 +12,12 @@ const elementsId = {
     divTaskList: "taskList"
 }
 
-
+const dateFormat = 'yyyy-MM-DDThh:mm'
 
 // Class task 
 
 class Task {
+    id;
     name;
     end;
     days;
@@ -29,14 +31,19 @@ class Task {
 
     constructor(formValue) {
         this.name = formValue[elementsId['taskName']]
-        this.end = formValue[elementsId['taskEnd']]
+        this.end = moment(formValue[elementsId['taskEnd']], dateFormat)
         this.days = formValue[elementsId['duracaoDias']]
         this.hours = formValue[elementsId['duracaoHoras']]
         this.minutes = formValue[elementsId['duracaoMinutos']]
     }
 
     toStringArray() {
-        return [`${this.name}`, `${this.end}`, `${this.days} dias ${this.hours}:${this.minutes}`]
+        let data = moment(this.end).format("DD/MM/YY")
+        return [`${this.name}`, `${data}`, `${this.days} dias ${this.hours}:${this.minutes}`, `<i onclick= "deleteTask(${this.id})" class="fa-regular fa-trash-can" style="cursor: pointer;"></i>`]
+    }
+
+    toString() {
+        return this.name
     }
 
     toTableRow() {
@@ -57,12 +64,15 @@ let tasks = [];
 function addTask() {
 
     let formValue = {}
+    console.log(document.getElementById('form'))
     for (x of document.getElementById('form')) {
         formValue[x.id] = x.value
     }
     if (validaForm(formValue)) {
         let task = new Task(formValue)
+        task.id = tasks.length;
         tasks.push(task);
+
         renderTasks();
     }
 
@@ -70,6 +80,14 @@ function addTask() {
 
 }
 
+function deleteTask(id) {
+    if (confirm('Deletar tarefa: ' + tasks[id].toString() + '?')) {
+        console.log(tasks)
+        tasks[id] = null;
+        console.log(tasks)
+        renderTasks()
+    }
+}
 
 // Validação
 
@@ -101,13 +119,19 @@ function fieldError(fieldName) {
 
 
 
+
+
 // Funções para gerenciar exibição de elementos
 
 
 function renderTasks() {
 
     let tasksHTML = tasks.map(
-        t => t.toTableRow()).join('')
+        t => {
+            if (t)
+                return t.toTableRow()
+        }
+    ).join('')
 
     let tasksTable = `<table><tr><th>Nome</th><th>Data Final</th><th>Duração</th></tr>${tasksHTML}</table>`
     document.getElementById("taskList").innerHTML = tasksTable
@@ -123,8 +147,8 @@ function setDataFinal() {
 function getToday() {
 
     let today = new Date();
-    const format = 'yyyy-MM-DDThh:mm'
-    let date = moment(today).format(format)
+
+    let date = moment(today).format(dateFormat)
     return date;
 
 }
