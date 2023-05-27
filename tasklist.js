@@ -5,17 +5,12 @@ const table_ids =
     'com_atraso': { id: 'step2', headers: ['nome', 'data de inicio', 'data de fim', 'atraso'] }
 }
 
-
-
 class TaskList extends Array {
 
     constructor() {
         super();
     }
 
-    add(task) {
-        this.push(task);
-    }
 
     add(formValue) {
         let task = new Task(formValue)
@@ -47,7 +42,6 @@ class TaskList extends Array {
         ).join('')
         return table + tasksHTML + '</table>';
     }
-
 }
 
 // let tasks = [];
@@ -58,7 +52,6 @@ function addTask() {
     let formValue = getFormValue();
     if (validaForm(formValue)) {
         tasks.add(formValue);
-        renderTasks();
     }
     return false;
 }
