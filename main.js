@@ -21,10 +21,13 @@ function addTask(formid) {
 
     tasks.push(task);
     renderTasks();
+    return false;
 
 }
 
-function parseTask()
+function parseTask() { }
+
+
 
 function renderTasks() {
 
@@ -34,6 +37,11 @@ function renderTasks() {
         t => t)
     console.log(tasksHTML)
     document.getElementById("taskList").innerHTML = tasksHTML.join('<br/>')
+}
+
+function setDataFinal() {
+
+    document.getElementById('dataFinal').value = getToday();
 }
 
 function getToday() {
@@ -51,5 +59,6 @@ function initForm() {
 
 function infoProcrastinador() {
     alert('O modo procrastinador reduz a data de entrega da tarefa em um tempo aleatório para te ajudar a não procrastinar.')
+    return false;
 }
 

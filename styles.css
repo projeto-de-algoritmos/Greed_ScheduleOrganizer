@@ -17,7 +17,11 @@ body {
 body>* {
     line-height: 4vh;
     padding: 1vh 1vw;
+
 }
+
+
+
 
 article {
     flex: 1;
@@ -35,6 +39,14 @@ footer {
 }
 
 
+button {
+    background-color: black;
+    color: white;
+
+}
+
+
+
 
 /* Classes */
 
@@ -43,8 +55,15 @@ footer {
     background-color: red;
 }
 
-.row {
-    flex: 1
+
+.flex-row>* {
+    margin: 0.3vw;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .center {
@@ -70,11 +89,6 @@ footer {
 
 
 
-button {
-    background-color: black;
-    color: white;
-
-}
 
 .flex-center {
     display: flex;
