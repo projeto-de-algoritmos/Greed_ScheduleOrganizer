@@ -48,6 +48,28 @@ button {
 
 
 
+th {
+    text-align: center !important;
+}
+
+th,
+td {
+    padding: 2px !important;
+
+}
+
+table,
+th,
+td {
+    border: 1px solid black !important;
+    border-collapse: collapse !important;
+}
+
+
+
+
+
+
 /* Classes */
 
 /* @TODO: remover depois de debugar */

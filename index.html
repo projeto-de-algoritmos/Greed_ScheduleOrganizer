@@ -46,8 +46,7 @@
             </div>
 
             <!-- Linha de formulário de nova tarefas, com linhas dentro -->
-            <form>
-
+            <form id="form">
                 <div class="row col-12">
                     <div class="row">
                         <div class="col-8">
@@ -92,8 +91,8 @@
                             <div class="col-9 d-flex justify-content-end">
                                 <label for="modoProcrastinador">
                                     Modo Procrastinador
-                                    <i id="infoProcrastinador" class="fa-solid fa-circle-info px-2"
-                                        onclick="infoProcrastinador(); return false" style="cursor: pointer;"></i>
+                                    <i class="fa-solid fa-circle-info px-2" onclick="infoProcrastinador(); return false"
+                                        style="cursor: pointer;"></i>
                                 </label>
                             </div>
                             <div class="col-3">
@@ -107,7 +106,7 @@
                         <div class="col-3 d-flex justify-content-end">
                             <div class="px-1">
 
-                                <button type="button" class="btn btn-dark" onclick="addTask('form');">Adicionar</button>
+                                <button type="button" class="btn btn-dark" onclick="addTask();">Adicionar</button>
                             </div>
                             <div>
                                 <button type="button" class="btn btn-dark"> Agendar Tarefas </button>
@@ -122,12 +121,12 @@
 
             <!-- Linha de tarefas -->
             <div class="row">
-                <div class="task-container">
-                    <div id="taskList" class="task-content">
-                        <p> Nenhuma tarefa cadastrada </p>
-                    </div>
+                <div class="col-12 center" id="taskList">
+                    Nenhuma tarefa cadastrada
+
 
                 </div>
+
             </div>
 
 
