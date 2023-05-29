@@ -26,12 +26,26 @@ class Task {
 
     setDataInicio(data) {
         this.data_de_inicio = data;
-        // @TODO: fazer o tratamento com as datas
-        this.data_de_fim = data
+        this.data_de_fim = moment(data)
             .add(this.dias, 'days')
             .add(this.horas, 'hours')
             .add(this.minutos, 'minutes')
-        this.atraso = this.data_de_final - this.data_final;
+
+        this.atraso = Math.max(this.data_de_fim.diff(this.data_final, 'minutes'), 0);
+
+        if (this.atraso > 0) {
+
+            let days, hours, minutes;
+            minutes = this.atraso
+            hours = Math.floor(minutes / 60)
+            minutes = minutes % 60
+            days = Math.floor(hours / 24)
+            hours = hours % 24
+            this.atraso = `<red>${days} d ${hours}h ${minutes} min</red>`
+        } else {
+            this.atraso = '<green><i class="fa-solid fa-check"></i></green>'
+        }
+
     }
 
 

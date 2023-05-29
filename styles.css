@@ -57,6 +57,21 @@ i {
     cursor: pointer;
 }
 
+green,
+red {
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+}
+
+green {
+    color: rgb(23, 102, 23)
+}
+
+
+red {
+    color: rgb(201, 40, 40);
+}
 
 /* Classes */
 

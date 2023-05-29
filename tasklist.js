@@ -1,6 +1,6 @@
 const table_ids =
 {
-    'lista': { id: 'taskList', headers: ['nome', 'data final', 'duracao'], },
+    'lista': { id: 'taskList', headers: ['nome', 'data final'], },
     'ordenadas': { id: 'step1', headers: ['nome', 'data final'], },
     'com_atraso': { id: 'step2', headers: ['nome', 'data de inicio', 'data de fim', 'atraso'] }
 }
