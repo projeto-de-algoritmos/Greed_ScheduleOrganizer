@@ -57,6 +57,10 @@ i {
     cursor: pointer;
 }
 
+button>i {
+    padding-left: 3px;
+}
+
 green,
 red {
     font-weight: bold;
@@ -74,11 +78,6 @@ red {
 }
 
 /* Classes */
-
-.color {
-    background-color: red;
-}
-
 
 .center {
     display: flex;

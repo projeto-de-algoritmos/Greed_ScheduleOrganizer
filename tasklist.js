@@ -59,6 +59,8 @@ function addTask() {
     if (validaForm(formValue)) {
         tasks.add(formValue);
     }
+
+    document.getElementById('btn-agendar').disabled = false
     return false;
 }
 
@@ -139,6 +141,8 @@ function scheduleTasks() {
     // Mostrar tarefas com atraso - verificar se os cálculos estão certos
     renderTasks('com_atraso', false)
 
+    document.getElementById('btn-salvar').disabled = false
+
 }
 
 function schedule() {
@@ -156,20 +160,20 @@ function init() {
     // @TODO: remover após os testes
 
 
-    tasks.add({ nome: "Tarefa 02", duracaoMinutos: 15, duracaoHoras: 2, duracaoDias: 1, dataFinal: "2023-05-29T05:02" })
-    tasks.add({ nome: "Tarefa 04", duracaoMinutos: 18, duracaoHoras: 5, duracaoDias: 1, dataFinal: "2023-05-30T08:13" })
-    tasks.add({ nome: "Tarefa 01", duracaoMinutos: 17, duracaoHoras: 4, duracaoDias: 1, dataFinal: "2023-05-29T00:10" })
-    tasks.add({ nome: "Tarefa 03", duracaoMinutos: 16, duracaoHoras: 3, duracaoDias: 1, dataFinal: "2023-05-29T21:44" })
-    tasks.add({ nome: "Tarefa 05", duracaoMinutos: 19, duracaoHoras: 6, duracaoDias: 1, dataFinal: "2023-06-05T20:50" })
-    tasks.add({ nome: "Tarefa 06", duracaoMinutos: 20, duracaoHoras: 7, duracaoDias: 1, dataFinal: "2023-06-01T18:06" })
-    tasks.add({ nome: "Tarefa 07", duracaoMinutos: 21, duracaoHoras: 8, duracaoDias: 1, dataFinal: "2023-06-04T02:22" })
-    tasks.add({ nome: "Tarefa 08", duracaoMinutos: 22, duracaoHoras: 9, duracaoDias: 1, dataFinal: "2023-06-04T15:10" })
-    tasks.add({ nome: "Tarefa 09", duracaoMinutos: 23, duracaoHoras: 10, duracaoDias: 1, dataFinal: "2023-06-06T03:23" })
-    tasks.add({ nome: "Tarefa 10", duracaoMinutos: 24, duracaoHoras: 11, duracaoDias: 1, dataFinal: "2023-06-03T10:51" })
-    tasks.add({ nome: "Tarefa 11", duracaoMinutos: 25, duracaoHoras: 12, duracaoDias: 1, dataFinal: "2023-06-06T20:14" })
-    tasks.add({ nome: "Tarefa 12", duracaoMinutos: 26, duracaoHoras: 13, duracaoDias: 1, dataFinal: "2023-06-01T05:56" })
-    scheduleTasks();
+    tasks.add({ nome: "Tarefa 01", duracaoMinutos: 15, duracaoHoras: 2, duracaoDias: 1, dataFinal: "2023-06-02T19:49" })
+    tasks.add({ nome: "Tarefa 02", duracaoMinutos: 18, duracaoHoras: 5, duracaoDias: 1, dataFinal: "2023-06-01T08:29" })
+    tasks.add({ nome: "Tarefa 03", duracaoMinutos: 24, duracaoHoras: 11, duracaoDias: 1, dataFinal: "2023-05-31T04:53" })
+    tasks.add({ nome: "Tarefa 04", duracaoMinutos: 25, duracaoHoras: 12, duracaoDias: 1, dataFinal: "2023-06-07T23:30" })
+    tasks.add({ nome: "Tarefa 05", duracaoMinutos: 26, duracaoHoras: 13, duracaoDias: 1, dataFinal: "2023-06-05T04:51" })
 
     return false;
 }
+
+
+
+
+
+
+
+
 

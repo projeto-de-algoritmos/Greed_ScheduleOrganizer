@@ -1,8 +1,27 @@
 
-function generate_ics() {
+function save(filename, data) {
+    const blob = new Blob([data], { type: 'text/csv' });
+    if (window.navigator.msSaveOrOpenBlob) {
+        window.navigator.msSaveBlob(blob, filename);
+    }
+    else {
+        const elem = window.document.createElement('a');
+        elem.href = window.URL.createObjectURL(blob);
+        elem.download = filename;
+        document.body.appendChild(elem);
+        elem.click();
+        document.body.removeChild(elem);
+    }
+}
+
+
+function saveTasks() {
+    scheduleTasks();
+
     const TIME_FORMAT = 'HH:MM'
     const DATE_FORMAT = 'MM/DD/YYYY'
-    console.log('Subject, Start Date, Start Time, End Date, End Time, Location, Description')
+
+    tarefas = 'Subject, Start Date, Start Time, End Date, End Time, Location, Description\n'
 
     tasks.map(t => {
         t.setDataInicio(moment())
@@ -14,11 +33,12 @@ function generate_ics() {
         const end_date = formatDate(t.data_de_fim, DATE_FORMAT)
         const end_time = formatDate(t.data_de_fim, TIME_FORMAT)
 
-        // console.log(`${t.nome},${start_date},${start_time},${end_date},${end_time}`)
-
+        tarefas += `${t.nome},${start_date},${start_time},${end_date},${end_time}\n`
 
     }
-    renderTasks('com_atraso', false)
+
+    save('tarefas.csv', tarefas)
+
     return false;
 
 }
