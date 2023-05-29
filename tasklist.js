@@ -83,7 +83,7 @@ function separate(left, right) {
             //Troca de posição a task[k] com a task[auxiliar]
             let taskToSave = tasks[auxiliar];
             tasks[auxiliar] = tasks[k];
-            tasks[k] = tasks[taskToSave];
+            tasks[k] = taskToSave;
             auxiliar++;
         }
     }
