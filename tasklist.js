@@ -1,3 +1,5 @@
+const { duration } = require("moment");
+
 const table_ids =
 {
     'lista': { id: 'taskList', headers: ['nome', 'data final', 'duracao'], },
@@ -66,15 +68,115 @@ function renderTasks(table_type, deletable = true) {
     document.getElementById(table_ids[table_type].id).innerHTML = tasks.toTable(table_ids[table_type].headers, deletable)
 }
 
+function separate(tasks, left, right){
+
+    let taskPivot = new Task();
+    taskPivot = tasks[right];
+
+    let auxiliar = left;
+
+    for(let k = left; k < right; k++){
+        if(tasks[k].data_final <= taskPivot.data_final){
+            
+            //Troca de posição a task[k] com a task[auxiliar]
+            let taskToSave = new Task();
+            
+            taskToSave = tasks[auxiliar];
+            
+            tasks[auxiliar] = tasks[k];
+
+            tasks[k] = tasks[taskToSave];
+
+            auxiliar++;
+        }
+    }
+
+    //Troca de posição a task[auxiliar] com a task[right]
+    let taskToSave = new Task();
+
+    taskToSave = tasks[right];
+    
+    tasks[right] = tasks[auxiliar];
+
+    tasks[auxiliar] = tasks[right];
+
+    //Devolve a posição do Pivo
+    return auxiliar;    
+}
+
+function quickSort(tasks, left, right){
+    
+    let auxiliar;
+
+    if(right <= left){
+        return;
+    }
+
+    console.log(tasks[(left+right)/2].data_final)
+    //Compara e troca
+    if(tasks[(left+right)/2].data_final < tasks[right].data_final){
+        
+        let taskToSave = new Task();
+
+        taskToSave = tasks[right];
+        
+        tasks[right] = tasks[(left+right)/2];
+
+        tasks[(left+right)/2] = tasks[right];
+    }
+
+    //Compara e troca
+    if(tasks[left].data_final < tasks[(left+right)/2].data_final){
+    
+        let taskToSave = new Task();
+
+        taskToSave = tasks[left];
+        
+        tasks[left] = tasks[(left+right)/2];
+
+        tasks[(left+right)/2] = tasks[left];
+    }
+
+    //Compara e troca
+    if(tasks[right].data_final < tasks[(left+right)/2].data_final){
+
+        let taskToSave = new Task();
+
+        taskToSave = tasks[right];
+        
+        tasks[right] = tasks[(left+right)/2];
+
+        tasks[(left+right)/2] = tasks[right];
+    }
+
+    //Recebe a posição do Pivo
+    auxiliar =  separate(tasks);
+    
+    quickSort(tasks,left, (auxiliar - 1));
+
+    quickSort(tasks, auxiliar+1, right);
+
+}
+
+//Scheduling to minimize lateness
 function scheduleTasks() {
 
     // Ordenar o tasks 
+    quickSort(tasks, 0, (tasks.length -1))
 
     // Mostrar ordenadas - verificar se a tabela renderizou certinho
     renderTasks('ordenadas', false)
 
-    // Agendar cada tarefa ordenada 
+    // Agendar cada tarefa ordenada
+    
+    tasks[0].data_de_inicio = 0;
+    tasks[0].data_de_fim = tasks[0].data_de_inicio + tasks[0].duracao;
 
+    for(let i = 1; i < tasks.length; i ++){
+        
+        tasks[i].data_de_inicio = tasks[i-1].data_de_fim;
+        tasks[i].data_de_fim = tasks[i].data_de_inicio + tasks[i].duracao;
+    }
 
     // Mostrar tarefas com atraso - verificar se os cálculos estão certos
     renderTasks('com_atraso', false)
@@ -100,5 +202,11 @@ function init() {
     tasks.add({ nome: "Tarefa 12", duracaoMinutos: 26, duracaoHoras: 13, duracaoDias: 4, dataFinal: "2023-06-01T05:56" })
 
     scheduleTasks();
+
+    if(tasks[0].dataFinal < tasks[1].dataFinal){
+        console.log(funciona);
+    }
+
     return false;
 }
+
