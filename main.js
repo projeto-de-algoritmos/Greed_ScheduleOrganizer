@@ -14,8 +14,8 @@ const repoUrl = 'https://github.com/projeto-de-algoritmos/Greed_ScheduleOrganize
 
 
 // Usado para fazer o parse da data de entrada e saída
-const dateFormat = 'yyyy-MM-DDThh:mm'
-const br_date = "DD/MM/YY hh:mm"
+const dateFormat = 'yyyy-MM-DDTHH:mm'
+const br_date = "DD/MM/YY HH:mm"
 
 function getFormValue() {
 

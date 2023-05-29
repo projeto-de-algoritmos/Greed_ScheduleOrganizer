@@ -101,7 +101,6 @@ function quickSort(left, right) {
         return;
     }
 
-    console.log(left, right, middle)
     //Compara e troca
     if (tasks[middle].data_final < tasks[right].data_final) {
         tasks.swap(middle, right)
@@ -128,25 +127,27 @@ function quickSort(left, right) {
 //Scheduling to minimize lateness
 function scheduleTasks() {
 
-    // Ordenar o tasks 
+    // Ordenar as tasks 
     quickSort(0, (tasks.length - 1))
 
     // Mostrar ordenadas - verificar se a tabela renderizou certinho
     renderTasks('ordenadas', false)
 
     // Agendar cada tarefa ordenada
-
-    tasks[0].data_de_inicio = 0;
-    tasks[0].data_de_fim = tasks[0].data_de_inicio + tasks[0].duracao;
-
-    for (let i = 1; i < tasks.length; i++) {
-
-        tasks[i].data_de_inicio = tasks[i - 1].data_de_fim;
-        tasks[i].data_de_fim = tasks[i].data_de_inicio + tasks[i].duracao;
-    }
+    schedule();
 
     // Mostrar tarefas com atraso - verificar se os cálculos estão certos
     renderTasks('com_atraso', false)
+
+}
+
+function schedule() {
+
+    tasks[0].setDataInicio(moment(new Date()).add(30, 'minutes'))
+
+    for (let i = 1; i < tasks.length; i++) {
+        tasks[i].setDataInicio(tasks[i - 1].data_de_fim)
+    }
 
 }
 
@@ -155,18 +156,18 @@ function init() {
     // @TODO: remover após os testes
 
 
-    tasks.add({ nome: "Tarefa 02", duracaoMinutos: 15, duracaoHoras: 2, duracaoDias: 0, dataFinal: "2023-05-29T05:02" })
-    tasks.add({ nome: "Tarefa 04", duracaoMinutos: 18, duracaoHoras: 5, duracaoDias: 3, dataFinal: "2023-05-30T08:13" })
-    tasks.add({ nome: "Tarefa 01", duracaoMinutos: 17, duracaoHoras: 4, duracaoDias: 2, dataFinal: "2023-05-29T00:10" })
+    tasks.add({ nome: "Tarefa 02", duracaoMinutos: 15, duracaoHoras: 2, duracaoDias: 1, dataFinal: "2023-05-29T05:02" })
+    tasks.add({ nome: "Tarefa 04", duracaoMinutos: 18, duracaoHoras: 5, duracaoDias: 1, dataFinal: "2023-05-30T08:13" })
+    tasks.add({ nome: "Tarefa 01", duracaoMinutos: 17, duracaoHoras: 4, duracaoDias: 1, dataFinal: "2023-05-29T00:10" })
     tasks.add({ nome: "Tarefa 03", duracaoMinutos: 16, duracaoHoras: 3, duracaoDias: 1, dataFinal: "2023-05-29T21:44" })
-    tasks.add({ nome: "Tarefa 05", duracaoMinutos: 19, duracaoHoras: 6, duracaoDias: 4, dataFinal: "2023-06-05T20:50" })
-    tasks.add({ nome: "Tarefa 06", duracaoMinutos: 20, duracaoHoras: 7, duracaoDias: 5, dataFinal: "2023-06-01T18:06" })
-    tasks.add({ nome: "Tarefa 07", duracaoMinutos: 21, duracaoHoras: 8, duracaoDias: 6, dataFinal: "2023-06-04T02:22" })
-    tasks.add({ nome: "Tarefa 08", duracaoMinutos: 22, duracaoHoras: 9, duracaoDias: 0, dataFinal: "2023-06-04T15:10" })
+    tasks.add({ nome: "Tarefa 05", duracaoMinutos: 19, duracaoHoras: 6, duracaoDias: 1, dataFinal: "2023-06-05T20:50" })
+    tasks.add({ nome: "Tarefa 06", duracaoMinutos: 20, duracaoHoras: 7, duracaoDias: 1, dataFinal: "2023-06-01T18:06" })
+    tasks.add({ nome: "Tarefa 07", duracaoMinutos: 21, duracaoHoras: 8, duracaoDias: 1, dataFinal: "2023-06-04T02:22" })
+    tasks.add({ nome: "Tarefa 08", duracaoMinutos: 22, duracaoHoras: 9, duracaoDias: 1, dataFinal: "2023-06-04T15:10" })
     tasks.add({ nome: "Tarefa 09", duracaoMinutos: 23, duracaoHoras: 10, duracaoDias: 1, dataFinal: "2023-06-06T03:23" })
-    tasks.add({ nome: "Tarefa 10", duracaoMinutos: 24, duracaoHoras: 11, duracaoDias: 2, dataFinal: "2023-06-03T10:51" })
-    tasks.add({ nome: "Tarefa 11", duracaoMinutos: 25, duracaoHoras: 12, duracaoDias: 3, dataFinal: "2023-06-06T20:14" })
-    tasks.add({ nome: "Tarefa 12", duracaoMinutos: 26, duracaoHoras: 13, duracaoDias: 4, dataFinal: "2023-06-01T05:56" })
+    tasks.add({ nome: "Tarefa 10", duracaoMinutos: 24, duracaoHoras: 11, duracaoDias: 1, dataFinal: "2023-06-03T10:51" })
+    tasks.add({ nome: "Tarefa 11", duracaoMinutos: 25, duracaoHoras: 12, duracaoDias: 1, dataFinal: "2023-06-06T20:14" })
+    tasks.add({ nome: "Tarefa 12", duracaoMinutos: 26, duracaoHoras: 13, duracaoDias: 1, dataFinal: "2023-06-01T05:56" })
     scheduleTasks();
 
     return false;
