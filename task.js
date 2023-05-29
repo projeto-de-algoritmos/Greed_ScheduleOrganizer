@@ -27,7 +27,10 @@ class Task {
     setDataInicio(data) {
         this.data_de_inicio = data;
         // @TODO: fazer o tratamento com as datas
-        this.data_de_fim = data + this.duracao;
+        this.data_de_fim = data
+            .add(this.dias, 'days')
+            .add(this.horas, 'hours')
+            .add(this.minutos, 'minutes')
         this.atraso = this.data_de_final - this.data_final;
     }
 
@@ -40,7 +43,7 @@ class Task {
         let row = '<tr>'
 
         for (let h of headers) {
-            let value = this[h.replace(' ', '_')]
+            let value = this[h.toLowerCase().replaceAll(' ', '_')]
             if (value instanceof moment)
                 value = formatDate(value, br_date)
             row += '<td>' + value + '</td>'
