@@ -112,7 +112,6 @@ function quickSort(tasks, left, right){
         return;
     }
 
-    console.log(tasks[(left+right)/2].data_final)
     //Compara e troca
     if(tasks[(left+right)/2].data_final < tasks[right].data_final){
         
@@ -202,10 +201,6 @@ function init() {
     tasks.add({ nome: "Tarefa 12", duracaoMinutos: 26, duracaoHoras: 13, duracaoDias: 4, dataFinal: "2023-06-01T05:56" })
 
     scheduleTasks();
-
-    if(tasks[0].dataFinal < tasks[1].dataFinal){
-        console.log(funciona);
-    }
 
     return false;
 }
