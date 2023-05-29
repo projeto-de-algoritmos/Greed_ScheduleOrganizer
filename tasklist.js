@@ -77,68 +77,51 @@ function separate(left, right) {
     let taskPivot = tasks[right];
     let auxiliar = left;
 
+
     for (let k = left; k < right; k++) {
         if (tasks[k].data_final <= taskPivot.data_final) {
-
             //Troca de posição a task[k] com a task[auxiliar]
-            let taskToSave = tasks[auxiliar];
-            tasks[auxiliar] = tasks[k];
-            tasks[k] = taskToSave;
+            tasks.swap(auxiliar, k)
             auxiliar++;
         }
     }
 
     //Troca de posição a task[auxiliar] com a task[right]
     tasks.swap(right, auxiliar)
-    // let taskToSave = tasks[right];
-    // tasks[right] = tasks[auxiliar];
-    // tasks[auxiliar] = taskToSave;
 
     //Devolve a posição do Pivo
     return auxiliar;
 }
 
+
 function quickSort(left, right) {
-    console.log(tasks)
     const middle = Math.floor((left + right) / 2)
-    // tasks.reduce((v, t) => v += t?.nome + '\n')
 
     if (right <= left) {
         return;
     }
 
-
-
+    console.log(left, right, middle)
     //Compara e troca
     if (tasks[middle].data_final < tasks[right].data_final) {
         tasks.swap(middle, right)
-
-        // let taskToSave = tasks[right];
-        // tasks[right] = tasks[middle];
-        // tasks[middle] = taskToSave;
     }
 
     //Compara e troca
     if (tasks[left].data_final < tasks[middle].data_final) {
         tasks.swap(left, middle)
-        // let taskToSave = tasks[left];
-        // tasks[left] = tasks[middle];
-        // tasks[middle] = taskToSave;
     }
 
     //Compara e troca
     if (tasks[right].data_final < tasks[middle].data_final) {
         tasks.swap(right, middle)
-        // let taskToSave = tasks[right];
-        // tasks[right] = tasks[middle];
-        // tasks[middle] = taskToSave;
     }
 
     //Recebe a posição do Pivo
     const auxiliar = separate(left, right);
 
-    quickSort(tasks, left, (auxiliar - 1));
-    quickSort(tasks, auxiliar + 1, right);
+    quickSort(left, (auxiliar - 1));
+    quickSort(auxiliar + 1, right);
 
 }
 
@@ -177,13 +160,13 @@ function init() {
     tasks.add({ nome: "Tarefa 01", duracaoMinutos: 17, duracaoHoras: 4, duracaoDias: 2, dataFinal: "2023-05-29T00:10" })
     tasks.add({ nome: "Tarefa 03", duracaoMinutos: 16, duracaoHoras: 3, duracaoDias: 1, dataFinal: "2023-05-29T21:44" })
     tasks.add({ nome: "Tarefa 05", duracaoMinutos: 19, duracaoHoras: 6, duracaoDias: 4, dataFinal: "2023-06-05T20:50" })
-    // tasks.add({ nome: "Tarefa 06", duracaoMinutos: 20, duracaoHoras: 7, duracaoDias: 5, dataFinal: "2023-06-01T18:06" })
-    // tasks.add({ nome: "Tarefa 07", duracaoMinutos: 21, duracaoHoras: 8, duracaoDias: 6, dataFinal: "2023-06-04T02:22" })
-    // tasks.add({ nome: "Tarefa 08", duracaoMinutos: 22, duracaoHoras: 9, duracaoDias: 0, dataFinal: "2023-06-04T15:10" })
-    // tasks.add({ nome: "Tarefa 09", duracaoMinutos: 23, duracaoHoras: 10, duracaoDias: 1, dataFinal: "2023-06-06T03:23" })
-    // tasks.add({ nome: "Tarefa 10", duracaoMinutos: 24, duracaoHoras: 11, duracaoDias: 2, dataFinal: "2023-06-03T10:51" })
-    // tasks.add({ nome: "Tarefa 11", duracaoMinutos: 25, duracaoHoras: 12, duracaoDias: 3, dataFinal: "2023-06-06T20:14" })
-    // tasks.add({ nome: "Tarefa 12", duracaoMinutos: 26, duracaoHoras: 13, duracaoDias: 4, dataFinal: "2023-06-01T05:56" })
+    tasks.add({ nome: "Tarefa 06", duracaoMinutos: 20, duracaoHoras: 7, duracaoDias: 5, dataFinal: "2023-06-01T18:06" })
+    tasks.add({ nome: "Tarefa 07", duracaoMinutos: 21, duracaoHoras: 8, duracaoDias: 6, dataFinal: "2023-06-04T02:22" })
+    tasks.add({ nome: "Tarefa 08", duracaoMinutos: 22, duracaoHoras: 9, duracaoDias: 0, dataFinal: "2023-06-04T15:10" })
+    tasks.add({ nome: "Tarefa 09", duracaoMinutos: 23, duracaoHoras: 10, duracaoDias: 1, dataFinal: "2023-06-06T03:23" })
+    tasks.add({ nome: "Tarefa 10", duracaoMinutos: 24, duracaoHoras: 11, duracaoDias: 2, dataFinal: "2023-06-03T10:51" })
+    tasks.add({ nome: "Tarefa 11", duracaoMinutos: 25, duracaoHoras: 12, duracaoDias: 3, dataFinal: "2023-06-06T20:14" })
+    tasks.add({ nome: "Tarefa 12", duracaoMinutos: 26, duracaoHoras: 13, duracaoDias: 4, dataFinal: "2023-06-01T05:56" })
     scheduleTasks();
 
     return false;
