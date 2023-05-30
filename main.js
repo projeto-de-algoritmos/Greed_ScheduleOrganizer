@@ -38,7 +38,7 @@ function getToday() {
 }
 
 function infoProcrastinador() {
-    alert('O modo procrastinador reduz a data de entrega da tarefa em um tempo aleatório para te ajudar a não procrastinar.')
+    alert('O modo procrastinador reduz a data de entrega da tarefa em um tempo aleatório, de até 3 dias, para te ajudar a não procrastinar.')
     return false;
 }
 
