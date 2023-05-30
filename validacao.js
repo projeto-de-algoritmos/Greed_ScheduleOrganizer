@@ -20,6 +20,7 @@ function validaData(formValue) {
         fieldError('Data Final');
         return false;
     }
+    return true
 }
 
 function validaNome(formValue) {

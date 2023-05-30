@@ -61,6 +61,7 @@ function addTask() {
     }
 
     document.getElementById('btn-agendar').disabled = false
+    console.log(tasks)
     return false;
 }
 
@@ -136,13 +137,14 @@ function checkProcastinationMode() {
             tasks[i].setShorterDeadLine();
         }
     }
+    console.log(procastination)
 }
 
 //Scheduling to minimize lateness
 function scheduleTasks() {
 
     // Verifica se o modo procastinador está ativo, caso esteja reduz o prazo de todas as tarefas 
-    checkProcastinationMode(procastination)
+    checkProcastinationMode()
 
     // Ordenar as tasks 
     quickSort(0, (tasks.length - 1))
@@ -169,22 +171,6 @@ function schedule() {
     }
 
 }
-
-function init() {
-
-    // @TODO: remover após os testes
-
-
-    tasks.add({ nome: "Tarefa 01", duracaoMinutos: 15, duracaoHoras: 2, duracaoDias: 1, dataFinal: "2023-06-02T19:49" })
-    tasks.add({ nome: "Tarefa 02", duracaoMinutos: 18, duracaoHoras: 5, duracaoDias: 1, dataFinal: "2023-06-01T08:29" })
-    tasks.add({ nome: "Tarefa 03", duracaoMinutos: 24, duracaoHoras: 11, duracaoDias: 1, dataFinal: "2023-05-31T04:53" })
-    tasks.add({ nome: "Tarefa 04", duracaoMinutos: 25, duracaoHoras: 12, duracaoDias: 1, dataFinal: "2023-06-07T23:30" })
-    tasks.add({ nome: "Tarefa 05", duracaoMinutos: 26, duracaoHoras: 13, duracaoDias: 1, dataFinal: "2023-06-05T04:51" })
-
-    return false;
-}
-
-
 
 
 
