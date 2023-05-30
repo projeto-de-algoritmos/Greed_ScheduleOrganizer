@@ -54,6 +54,7 @@ class TaskList extends Array {
 let tasks = new TaskList();
 
 function addTask() {
+    document.getElementById('no-tasks').remove()
 
     let formValue = getFormValue();
     if (validaForm(formValue)) {
@@ -127,15 +128,15 @@ function quickSort(left, right) {
 }
 
 
-function checkProcastinationMode(){
+function checkProcastinationMode() {
 
     let formValue = getFormValue();
 
     let procastination = formValue[elementsId['modoProcrastinador']];
-    if(procastination == 'on'){
+    if (procastination == 'on') {
         for (let i = 0; i < tasks.length; i++) {
             tasks[i].setShorterDeadLine();
-        } 
+        }
     }
 }
 

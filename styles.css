@@ -61,6 +61,12 @@ button>i {
     padding-left: 3px;
 }
 
+footer>p>a {
+    color: #b9c3c7 !important;
+}
+
+
+
 green,
 red {
     font-weight: bold;

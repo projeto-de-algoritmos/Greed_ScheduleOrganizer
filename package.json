@@ -3,7 +3,7 @@
     "start": "npx live-server"
   },
   "dependencies": {
-    "live-server": "^1.2.2",
+    "live-server": "^1.1.0",
     "moment": "2.29.4"
   }
 }

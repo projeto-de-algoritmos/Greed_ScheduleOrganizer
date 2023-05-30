@@ -1,5 +1,4 @@
 
-
 function validaForm(formValue) {
 
     if (!validaNome(formValue))
@@ -8,14 +7,19 @@ function validaForm(formValue) {
     if (!validaDuracao(formValue))
         return false;
 
+    if (!validaData(formValue))
+        return false;
+
+    return true;
+
+}
+
+
+function validaData(formValue) {
     if (!formValue[elementsId['taskEnd']]) {
         fieldError('Data Final');
         return false;
     }
-
-
-    return true;
-
 }
 
 function validaNome(formValue) {
