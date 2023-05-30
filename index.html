@@ -37,7 +37,7 @@
                 <i class="fa-solid fa-calendar white logo-img px-2" href="#"> </i>
             </div>
             <div>
-                <i class="fa-solid fa-info px-3 white"> </i>
+                <i class="fa-solid fa-info px-3 white" onclick="infoProject(); return false" style="cursor: pointer;"> </i>
                 <i class="fa-solid fa-code px-3 white" onclick="window.open(repoUrl, '_blank');"> </i>
             </div>
 
@@ -105,10 +105,10 @@
                                     onclick="infoProcrastinador(); return false" style="cursor: pointer;"></i>
                             </label>
                         </div>
-                        <div class="col-3">
+                        <div class="col-1">
 
-                            <div>
-                              <input type="checkbox" id="modoProcrastinador">
+                            <div class=" form-check form-switch  d-flex justify-content-end" onclick="changeProcastination()">
+                                <input class=" form-check-input" type="checkbox" id="modoProcrastinador">
                             </div>
 
                         </div>
