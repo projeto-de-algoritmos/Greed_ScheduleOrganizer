@@ -23,9 +23,6 @@ function saveTasks() {
 
     tarefas = 'Subject, Start Date, Start Time, End Date, End Time, Location, Description\n'
 
-    tasks.map(t => {
-        t.setDataInicio(moment())
-    })
 
     for (let t of tasks) {
         const start_date = formatDate(t.data_de_inicio, DATE_FORMAT)
