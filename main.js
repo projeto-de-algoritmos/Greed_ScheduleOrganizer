@@ -16,6 +16,7 @@ const repoUrl = 'https://github.com/projeto-de-algoritmos/Greed_ScheduleOrganize
 // Usado para fazer o parse da data de entrada e saída
 const dateFormat = 'yyyy-MM-DDTHH:mm'
 const br_date = "DD/MM/YY HH:mm"
+var procastination = 'off';
 
 function getFormValue() {
 
@@ -49,7 +50,7 @@ function infoProject() {
     return false;
 }
 
-var procastination = 'off';
+
 
 function changeProcastination() {
     if (procastination == 'off') {
@@ -57,4 +58,6 @@ function changeProcastination() {
     } else {
         procastination = 'off'
     }
+    checkProcastinationMode();
+    renderTasks(steps[1])
 }

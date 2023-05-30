@@ -16,12 +16,12 @@ class TaskList extends Array {
         let task = new Task(formValue)
         task.id = this.length;
         this.push(task)
-        renderTasks('lista')
+        renderTasks()
     }
 
     remove(index) {
         this[index] = null;
-        renderTasks('lista')
+        renderTasks()
     }
 
     toTable(headers, deletable = true) {
@@ -55,13 +55,13 @@ let tasks = new TaskList();
 
 function addTask() {
 
+
     let formValue = getFormValue();
     if (validaForm(formValue)) {
         tasks.add(formValue);
+        renderTasks(steps[1])
     }
 
-    document.getElementById('btn-agendar').disabled = false
-    console.log(tasks)
     return false;
 }
 
@@ -71,8 +71,29 @@ function deleteTask(id) {
 
 }
 
-function renderTasks(table_type, deletable = true) {
-    document.getElementById(table_ids[table_type].id).innerHTML = tasks.toTable(table_ids[table_type].headers, deletable)
+const steps = ['no_tasks', 'list_tasks', 'list_schedule']
+
+function renderTasks(step) {
+    if (tasks.length <= 0)
+        return false;
+
+    if (step == steps[0]) {
+        document.getElementById(table_ids['lista'].id).innerHTML = ''
+        document.getElementById(table_ids['ordenadas'].id).innerHTML = ''
+        document.getElementById(table_ids['com_atraso'].id).innerHTML = ''
+    }
+    if (step == steps[1]) {
+        document.getElementById('no-task-div')?.remove()
+        document.getElementById('btn-agendar').disabled = false
+        document.getElementById(table_ids['lista'].id).innerHTML = tasks.toTable(table_ids['lista'].headers, true)
+    }
+    if (step == steps[2]) {
+        document.getElementById(table_ids['lista'].id).innerHTML = tasks.toTable(table_ids['lista'].headers)
+        document.getElementById(table_ids['ordenadas'].id).innerHTML = tasks.toTable(table_ids['ordenadas'].headers)
+        document.getElementById(table_ids['com_atraso'].id).innerHTML = tasks.toTable(table_ids['com_atraso'].headers)
+        document.getElementById('btn-salvar').disabled = false
+    }
+
 }
 
 function separate(left, right) {
@@ -131,32 +152,38 @@ function quickSort(left, right) {
 function checkProcastinationMode() {
 
     let formValue = getFormValue();
-
     if (procastination == 'on') {
         for (let i = 0; i < tasks.length; i++) {
             tasks[i].setShorterDeadLine();
         }
+    } else {
+        tasks.forEach(t => t.desSetShorterDeadline())
     }
-    console.log(procastination)
+
+    renderTasks();
+
 }
 
 //Scheduling to minimize lateness
 function scheduleTasks() {
+    if (tasks.length == 0)
+        return false;
+
 
     // Verifica se o modo procastinador está ativo, caso esteja reduz o prazo de todas as tarefas 
-    checkProcastinationMode()
+    // checkProcastinationMode()
 
     // Ordenar as tasks 
     quickSort(0, (tasks.length - 1))
 
     // Mostrar ordenadas - verificar se a tabela renderizou certinho
-    renderTasks('ordenadas', false)
+    renderTasks(steps[2])
 
     // Agendar cada tarefa ordenada
     schedule();
 
     // Mostrar tarefas com atraso - verificar se os cálculos estão certos
-    renderTasks('com_atraso', false)
+    renderTasks(steps[2])
 
     document.getElementById('btn-salvar').disabled = false
 

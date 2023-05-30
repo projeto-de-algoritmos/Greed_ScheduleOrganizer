@@ -8,6 +8,7 @@ class Task {
     duracao;
     data_de_inicio;
     data_de_fim;
+    is_data_decrementada;
     atraso;
 
     getDurationInMinutes() {
@@ -21,18 +22,20 @@ class Task {
         this.horas = + formValue[elementsId['duracaoHoras']]
         this.minutos = + formValue[elementsId['duracaoMinutos']]
         this.duracao = this.getDurationInMinutes()
-
     }
 
-    setShorterDeadLine(){
+    setShorterDeadLine() {
+        if (!this.is_data_decrementada) {
+            const random = (num) => Math.floor(Math.random() * num);
+            //4320min = 72h = 3 dias (máximo decremento no prazo de entrega gerado pelo antiprocastinação)
+            let decrement = random(4320);
+            this.data_original = moment(this.data_final);
+            this.data_final.subtract(decrement, 'minutes');
+        }
+    }
 
-        const random = (num) => Math.floor(Math.random()*num);  
-
-        //4320min = 72h = 3 dias (máximo decremento no prazo de entrega gerado pelo antiprocastinação)
-        let decrement = random(4320);
-
-        this.data_final.subtract(decrement, 'minutes');
-
+    desSetShorterDeadline() {
+        this.data_final = moment(this.data_original)
     }
 
 
