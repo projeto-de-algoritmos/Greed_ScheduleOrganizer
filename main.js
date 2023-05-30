@@ -42,3 +42,21 @@ function infoProcrastinador() {
     return false;
 }
 
+function infoProject(){
+
+    alert('Esse projeto tem o intuito de ajudar o usuário a verificar qual o menor atraso máximo (atraso da tarefa que mais atrasou) para se realizar um conjunto de tarefas utilizando o algoritmo Scheduling to Minimize Lateness e adicionar esse cronograma à sua agenda, por meio de um arquivo CSV que pode ser utilizado no Google Calendar.'
+    + '\n\n' +'Obs1.: O tempo de início para a realização das tarefas começa 30 minutos após as tarefas serem agendadas.')
+    return false;
+ }
+
+ var procastination = 'off';
+
+ function changeProcastination(){
+    if( procastination == 'off'){
+        procastination = 'on';
+        console.log(procastination)
+    }else{
+        procastination = 'off'
+        console.log(procastination)
+    }        
+}

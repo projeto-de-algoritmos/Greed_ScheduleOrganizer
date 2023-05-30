@@ -132,7 +132,6 @@ function checkProcastinationMode() {
 
     let formValue = getFormValue();
 
-    let procastination = formValue[elementsId['modoProcrastinador']];
     if (procastination == 'on') {
         for (let i = 0; i < tasks.length; i++) {
             tasks[i].setShorterDeadLine();
@@ -144,7 +143,7 @@ function checkProcastinationMode() {
 function scheduleTasks() {
 
     // Verifica se o modo procastinador está ativo, caso esteja reduz o prazo de todas as tarefas 
-    checkProcastinationMode()
+    checkProcastinationMode(procastination)
 
     // Ordenar as tasks 
     quickSort(0, (tasks.length - 1))
