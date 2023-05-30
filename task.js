@@ -21,6 +21,18 @@ class Task {
         this.horas = + formValue[elementsId['duracaoHoras']]
         this.minutos = + formValue[elementsId['duracaoMinutos']]
         this.duracao = this.getDurationInMinutes()
+
+    }
+
+    setShorterDeadLine(){
+
+        const random = (num) => Math.floor(Math.random()*num);  
+
+        //4320min = 72h = 3 dias (máximo decremento no prazo de entrega gerado pelo antiprocastinação)
+        let decrement = random(4320);
+
+        this.data_final.subtract(decrement, 'minutes');
+
     }
 
 

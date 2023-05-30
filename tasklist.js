@@ -126,8 +126,24 @@ function quickSort(left, right) {
 
 }
 
+
+function checkProcastinationMode(){
+
+    let formValue = getFormValue();
+
+    let procastination = formValue[elementsId['modoProcrastinador']];
+    if(procastination == 'on'){
+        for (let i = 0; i < tasks.length; i++) {
+            tasks[i].setShorterDeadLine();
+        } 
+    }
+}
+
 //Scheduling to minimize lateness
 function scheduleTasks() {
+
+    // Verifica se o modo procastinador está ativo, caso esteja reduz o prazo de todas as tarefas 
+    checkProcastinationMode()
 
     // Ordenar as tasks 
     quickSort(0, (tasks.length - 1))
