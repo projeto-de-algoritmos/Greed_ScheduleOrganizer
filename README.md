@@ -43,12 +43,12 @@ Para isso, foi implementado o algoritmo QuickSort com a otimização da mediana 
 **Linguagem**: Javascript<br/>
 **Framework**: Não há<br/>
 
-Para rodar o projeto localmente é necessário ter Node (^20.0.0) instalado na máquina. Recomendamos a utilização do Node Version Manager (nvm) para instalação da versão correta do node, você pode seguir a [documentação](https://github.com/nvm-sh/nvm/blob/master/README.md#installing-and-updating) do nvm para realizar a instalação. Em seguida execute os seguintes comandos na pasta raiz do projeto a mesma onde se encontra o [package.json](./package.json).
+Para rodar o projeto localmente é necessário ter Node (^16.0.0) instalado na máquina. Recomendamos a utilização do Node Version Manager (nvm) para instalação da versão correta do node, você pode seguir a [documentação](https://github.com/nvm-sh/nvm/blob/master/README.md#installing-and-updating) do nvm para realizar a instalação. Em seguida execute os seguintes comandos na pasta raiz do projeto a mesma onde se encontra o [package.json](./package.json).
 
 ```shell
 
-nvm install 20.0.0
-nvm use 20.0.0
+nvm install 16.0.0
+nvm use 16.0.0
 
 ```
 
