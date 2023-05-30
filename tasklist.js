@@ -54,7 +54,6 @@ class TaskList extends Array {
 let tasks = new TaskList();
 
 function addTask() {
-    document.getElementById('no-tasks').remove()
 
     let formValue = getFormValue();
     if (validaForm(formValue)) {
