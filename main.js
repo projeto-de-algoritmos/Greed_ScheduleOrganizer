@@ -57,4 +57,5 @@ function changeProcastination() {
     } else {
         procastination = 'off'
     }
+    scheduleTasks()
 }

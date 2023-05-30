@@ -117,3 +117,10 @@ red {
 .white {
     color: #d4d7d8 !important;
 }
+
+div.card {
+    box-shadow: #121619;
+    background-color: #b9c3c7;
+    padding: 2vh;
+
+}

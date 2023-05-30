@@ -55,13 +55,14 @@ let tasks = new TaskList();
 
 function addTask() {
 
+
     let formValue = getFormValue();
     if (validaForm(formValue)) {
         tasks.add(formValue);
+        document.getElementById('no-task-div').remove()
+        document.getElementById('btn-agendar').disabled = false
     }
 
-    document.getElementById('btn-agendar').disabled = false
-    console.log(tasks)
     return false;
 }
 
@@ -137,7 +138,6 @@ function checkProcastinationMode() {
             tasks[i].setShorterDeadLine();
         }
     }
-    console.log(procastination)
 }
 
 //Scheduling to minimize lateness
