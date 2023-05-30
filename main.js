@@ -58,6 +58,10 @@ function changeProcastination() {
     } else {
         procastination = 'off'
     }
+<<<<<<< HEAD
     checkProcastinationMode();
     renderTasks(steps[1])
+=======
+    scheduleTasks()
+>>>>>>> 9e41e2e51f2942aa8a33c152d7eda337ed0ccb16
 }
