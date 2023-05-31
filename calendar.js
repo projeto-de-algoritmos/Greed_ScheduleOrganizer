@@ -18,7 +18,7 @@ function save(filename, data) {
 function saveTasks() {
     scheduleTasks();
 
-    const TIME_FORMAT = 'HH:MM'
+    const TIME_FORMAT = 'HH:mm'
     const DATE_FORMAT = 'MM/DD/YYYY'
 
     tarefas = 'Subject, Start Date, Start Time, End Date, End Time, Location, Description\n'

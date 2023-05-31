@@ -12,7 +12,7 @@
 
 ## Sobre
 
-Esse projeto visa verificar qual o menor atraso mínimo possível para se realizar um conjunto de tarefas, utilizando o algoritmo **Scheduling to Minimize Lateness** [1] e ao final fornece a possibilidade do usuário baixar um arquivo CSV para agendar essas tarefas no [Google Calendar](https://calendar.google.com/), além disso o usuário poderá ativar um Modo Anti-Procrastinação no qual o prazo de entrega de todas as tarefas é reduzido em um tempo aleatório de até 3 dias.
+Esse projeto visa verificar qual o menor atraso mínimo possível para se realizar um conjunto de tarefas, utilizando o algoritmo **Scheduling to Minimize Lateness** [1] e ao final fornece a possibilidade do usuário baixar um arquivo .csv para agendar essas tarefas no [Google Calendar](https://calendar.google.com/), além disso o usuário poderá ativar um Modo Anti-Procrastinação no qual o prazo de entrega de todas as tarefas é reduzido em um tempo aleatório de até 3 dias.
 
 Para isso, foi implementado o algoritmo QuickSort com a otimização da mediana de três elementos [2] para ordenar as tarefas por ordem crescente de data de entrega e em seguida agenda-las nessa mesma ordem, seguindo assim o algoritmo Scheduling to Minimize Lateness.
 
@@ -34,9 +34,9 @@ Para isso, foi implementado o algoritmo QuickSort com a otimização da mediana 
 
 <center> Figura 4 - Exemplo de agendamento de tarefas com o modo procrastinador ativado.</center><br>
 
-![Figura 5 - Utilização de arquivo CSV.](./assets/csv.png)
+![Figura 5 - Utilização de arquivo .csv.](./assets/csv.png)
 
-<center> Figura 5 - Exemplo de utilização de arquivo CSV.</center><br>
+<center> Figura 5 - Exemplo de utilização de arquivo .csv (essas tarefas foram ordenadas com o modo procastinador desativado).</center><br>
 
 ## Instalação
 
@@ -74,19 +74,43 @@ npm run start
 
 ## Uso
 
-Para usar o projeto, acesse a página ([local](http://127.0.0.1:8080/) ou no [github](https://projeto-de-algoritmos.github.io/Greed_ScheduleOrganizer/)), adicione as atividades desejados, agende as tarefas (com ou sem o modo procastinador), após o processamento salve o arquivo CSV e o utilize para agendar suas tarefas no [Google Calendar](https://calendar.google.com/).
+Para usar o projeto, acesse a página ([local](http://127.0.0.1:8080/) ou no [github](https://projeto-de-algoritmos.github.io/Greed_ScheduleOrganizer/)), adicione as atividades desejados, agende as tarefas (com ou sem o modo procastinador), após o processamento salve o arquivo .csv e o utilize para agendar suas tarefas no [Google Calendar](https://calendar.google.com/).
 
 ## Outros
 
-<!-- <video src='./assets/explicaoCSV.mp4'></video>
+### Abaixo estão as orientações de como adicionar o arquivo .csv ao Google Calendar
 
-[Explicação de como adicionar arquivo ao Google Calendar](./assets/explicaoCSV.mp4) -->
+Para adicionar o arquivo .csv ao [Google Calendar](https://calendar.google.com/) siga o seguintes passos:
+
+- 1° - Acesse configurações <br><br>
+![Figura 6 - Configurações.](./assets/configuracoes.png)
+
+Figura 6 - Configurações.<br><br>
+
+- 2° - Acesse Importar e exportar <br><br>
+![Figura 7 - Importar e exportar.](./assets/ImportarExportar.png)
+
+Figura 7 - Importar e exportar.<br><br>
+
+- 3° - Importe as tarefas  <br><br>
+![Figura 8 - Importar tarefas.](./assets/ImportarTarefas.png)
+
+Figura 8 - Importar tarefas.<br><br>
+
+
+- 4° - Verifique suas tarefas  <br><br>
+![Figura 9 - Verificar tarefas.](./assets/VerificarTarefas.png)
+
+Figura 9 - Exemplo de lista de tarefas.<br><br>
+
 
 ## Apresentação
 
 <video src='./assets/gravacao.mp4'></video>
 
 [Arquivo de apresentação](./assets/gravacao.mp4)
+
+**Nota:** Foi percebido um pequeno bug que aconteceu no vídeo, o arquivo .csv estava utilizando um horário diferente das tarefas marcadas pelo algoritmo, mas esse já foi corrigido.
 
 ## Referências
 
