@@ -36,14 +36,14 @@ Para isso, foi implementado o algoritmo QuickSort com a otimização da mediana 
 
 ![Figura 5 - Utilização de arquivo .csv.](./assets/csv.png)
 
-<center> Figura 5 - Exemplo de utilização de arquivo .csv (essas tarefas foram ordenadas com o modo procastinador desativado).</center><br>
+<center> Figura 5 - Exemplo de utilização de arquivo .csv (essas tarefas foram ordenadas com o modo procrastinador desativado).</center><br>
 
 ## Instalação
 
 **Linguagem**: Javascript<br/>
 **Framework**: Não há<br/>
 
-Para rodar o projeto localmente é necessário ter Node (^16.0.0) instalado na máquina. Recomendamos a utilização do Node Version Manager (nvm) para instalação da versão correta do node, você pode seguir a [documentação](https://github.com/nvm-sh/nvm/blob/master/README.md#installing-and-updating) do nvm para realizar a instalação. Em seguida execute os seguintes comandos na pasta raiz do projeto a mesma onde se encontra o [package.json](./package.json).
+Para rodar o projeto localmente é necessário ter Node (^16.0.0) instalado na máquina. Recomendamos a utilização do Node Version Manager (nvm) para instalação da versão correta do node, você pode seguir a [documentação](https://github.com/nvm-sh/nvm/blob/master/README.md#installing-and-updating) do nvm para realizar a instalação. Em seguida execute os seguintes comandos na pasta raiz do projeto, a mesma onde se encontra o [package.json](./package.json).
 
 ```shell
 
