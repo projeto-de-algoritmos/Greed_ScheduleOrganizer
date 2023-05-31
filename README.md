@@ -14,7 +14,7 @@
 
 Esse projeto visa verificar qual o menor atraso mínimo possível para se realizar um conjunto de tarefas, utilizando o algoritmo **Scheduling to Minimize Lateness** [1] e ao final fornece a possibilidade do usuário baixar um arquivo .csv para agendar essas tarefas no [Google Calendar](https://calendar.google.com/), além disso o usuário poderá ativar um Modo Anti-Procrastinação no qual o prazo de entrega de todas as tarefas é reduzido em um tempo aleatório de até 3 dias.
 
-Para isso, foi implementado o algoritmo QuickSort com a otimização da mediana de três elementos [2] para ordenar as tarefas por ordem crescente de data de entrega e em seguida agenda-las nessa mesma ordem, seguindo assim o algoritmo Scheduling to Minimize Lateness.
+Para isso, foi implementado o algoritmo QuickSort com a otimização da mediana de três elementos [2] para ordenar as tarefas por ordem crescente de data de entrega e em seguida agenda-las nessa mesma ordem, seguindo assim o algoritmo Scheduling to Minimize Lateness[1].
 
 ## Screenshots
 
@@ -36,7 +36,7 @@ Para isso, foi implementado o algoritmo QuickSort com a otimização da mediana 
 
 ![Figura 5 - Utilização de arquivo .csv.](./assets/csv.png)
 
-<center> Figura 5 - Exemplo de utilização de arquivo .csv (essas tarefas foram ordenadas com o modo procrastinador desativado).</center><br>
+<center> Figura 5 - Exemplo de utilização de arquivo .csv no Google Calendar (essas tarefas foram ordenadas com o modo procrastinador desativado).</center><br>
 
 ## Instalação
 
@@ -80,9 +80,9 @@ Para usar o projeto, acesse a página ([local](http://127.0.0.1:8080/) ou no [gi
 
 ### Abaixo estão as orientações de como adicionar o arquivo .csv ao Google Calendar
 
-Para adicionar o arquivo .csv ao [Google Calendar](https://calendar.google.com/) siga o seguintes passos:
+Para adicionar o arquivo .csv ao Google Calendar siga o seguintes passos:
 
-- 1° - Acesse configurações <br><br>
+- 1° - Vá até o site do [Google Calendar](https://calendar.google.com/) faça o login e acesse as configurações <br><br>
 ![Figura 6 - Configurações.](./assets/configuracoes.png)
 
 Figura 6 - Configurações.<br><br>
